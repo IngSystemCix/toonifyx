@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToonifyX</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #e2e8f0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            border-radius: 10px;
+            border: none;
+            padding: 15px;
+            font-size: 14px;
+            background: #020617;
+            color: #38bdf8;
+            outline: none;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.03);
+            opacity: 0.9;
+        }
+
+        pre {
+            margin-top: 20px;
+            background: #020617;
+            padding: 15px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-size: 13px;
+            color: #22c55e;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🚀 ToonifyX</h1>
+
+        <textarea id="jsonInput">
+{"name": "Juan", "role": "developer"}
+        </textarea>
+
+        <button onclick="send()">Convertir a Toon</button>
+
+        <pre id="result">// Resultado aparecerá aquí</pre>
+
+        <div class="footer">
+            JSON → Toon Engine
+        </div>
+    </div>
+
+    <script>
+        async function send() {
+            try {
+                const data = JSON.parse(document.getElementById("jsonInput").value);
+
+                const res = await fetch('/api/toon', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await res.json();
+                document.getElementById("result").innerText = JSON.stringify(result, null, 2);
+
+            } catch (err) {
+                document.getElementById("result").innerText = "Error: JSON inválido";
+            }
+        }
+    </script>
+</body>
+</html>

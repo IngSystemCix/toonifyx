@@ -6,7 +6,6 @@
   <title>ToonifyX</title>
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.278.0/lucide.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     /* Custom Scrollbar */
     .custom-scrollbar::-webkit-scrollbar {
@@ -26,24 +25,24 @@
 </head>
 <body class="bg-[#020617] text-slate-200 font-sans selection:bg-sky-500/30 antialiased">
 
-  <div class="min-h-screen flex justify-center items-start py-12 px-4 lg:px-0 relative">
+  <div class="min-h-screen flex justify-center items-start py-12 px-4 sm:px-6 lg:px-0 relative">
     <!-- Background decoration -->
     <div class="absolute -top-1/4 -left-1/4 w-2/5 h-2/5 bg-sky-500/10 blur-[120px] rounded-full pointer-events-none"></div>
     <div class="absolute -bottom-1/4 -right-1/4 w-2/5 h-2/5 bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-    <main class="relative z-10 max-w-5xl w-full grid lg:grid-cols-2 gap-8">
+    <main class="relative z-10 max-w-5xl w-full grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
 
       <!-- Input Section -->
       <section class="space-y-4">
-        <div class="text-center lg:text-left mb-4">
+        <div class="text-center sm:text-left mb-4">
           <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-semibold uppercase tracking-wider">
             ✨ AI Powered Engine
           </span>
-          <h1 class="text-5xl lg:text-6xl font-bold tracking-tight text-white mt-4">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mt-4">
             Toonify<span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">X</span>
           </h1>
-          <p class="text-slate-400 mt-2 text-lg max-w-xl">
-            Transforma tus datos JSON en narrativas visuales y personajes animados con IA.
+          <p class="text-slate-400 mt-2 text-base sm:text-lg max-w-full sm:max-w-xl">
+            Convierte tu JSON en formato Toon simplificado para usar con IA de manera eficiente.
           </p>
         </div>
 
@@ -54,7 +53,7 @@
 
         <div class="relative group">
           <div class="absolute -inset-0.5 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
-          <textarea id="jsonInput" class="relative w-full h-80 bg-[#0f172a] border border-slate-800 rounded-xl p-6 font-mono text-sm text-sky-300 outline-none focus:border-sky-500/50 transition-colors resize-none shadow-2xl" placeholder='{"key": "value"}'>
+          <textarea id="jsonInput" class="relative w-full h-72 sm:h-80 bg-[#0f172a] border border-slate-800 rounded-xl p-4 sm:p-6 font-mono text-sm text-sky-300 outline-none focus:border-sky-500/50 transition-colors resize-none shadow-2xl" placeholder='{"key": "value"}'>
 {
   "name": "Juan",
   "role": "developer",
@@ -79,9 +78,9 @@
           </button>
         </div>
 
-        <div class="relative min-h-[380px]">
+        <div class="relative min-h-[300px] sm:min-h-[380px]">
           <div class="absolute inset-0 bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden shadow-2xl p-4 custom-scrollbar">
-            <pre id="result" class="whitespace-pre-wrap text-lg italic text-slate-300">// Ingresa un JSON y presiona el botón para ver la magia.</pre>
+            <pre id="result" class="whitespace-pre-wrap text-base sm:text-lg italic text-slate-300">// Ingresa un JSON y presiona el botón para ver la magia.</pre>
           </div>
         </div>
       </section>

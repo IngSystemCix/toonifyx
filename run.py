@@ -1,7 +1,6 @@
-from flask import Blueprint, request, jsonify, render_template
+from app import create_app
 
-main = Blueprint('main', __name__, template_folder='templates')
+app = create_app()
 
-@main.route('/')
-def home():
-    return render_template('index.html')
+if __name__ == "__main__":
+    app.run(debug=True)
